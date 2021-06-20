@@ -30,6 +30,7 @@
     "supports-color": "^7.1.0"
   },
   "devDependencies": {
+    "@ant-design/icons": "^4.6.2",
     "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
   }
