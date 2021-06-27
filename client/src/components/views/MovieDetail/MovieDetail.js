@@ -6,14 +6,13 @@ import GridCards from "../commons/GridCards";
 import {Row} from "antd";
 
 function MovieDetail(props) {
-
     let movieId = props.match.params.movieId
     const [Movie, setMovie] = useState([]);
     const [Casts, setCasts] = useState([]);
     const [ActorToggle, setActorToggle] = useState([]);
-
+    console.log('props', props);
     useEffect(() => {
-        console.log('props.match', props.match);
+        // console.log('props.match', props.match);
         const endPointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
         const endPointInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
         fetch(endPointInfo)
@@ -39,12 +38,14 @@ function MovieDetail(props) {
     return (
         <div>
             {/* Header */}
-
+            {Movie.backdrop_path &&
             <MainImage
                 image={`${IMAGE_BASE_URL}w1280${Movie.backdrop_path}`}
                 title={Movie.original_title}
                 text={Movie.overview}
             />
+            }
+
 
             {/* Body */}
             <div style={{width: '85%', margin: '1rem auto'}}>
@@ -60,11 +61,13 @@ function MovieDetail(props) {
                 <Row gutter={[16, 16]}>
                     {Casts && Casts.map((casts, idx) => (
                         <React.Fragment key={idx}>
+                            {casts.profile_path &&
                             <GridCards
                                 image={casts.profile_path ?
                                     `${IMAGE_BASE_URL}w500${casts.profile_path}` : null}
                                 characterName={casts.name}
                             />
+                            }
                         </React.Fragment>
                     ))}
 
