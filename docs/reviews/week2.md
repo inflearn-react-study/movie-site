@@ -31,4 +31,5 @@
 ## issue
 
 1. Mongodb 가 원할히 접속되지 않던 문제.
-* 출처: https://dream-frontend.tistory.com/382
+
+2. login 을 할 경우 movie detail 페이지에 접속 안되던 문제.
