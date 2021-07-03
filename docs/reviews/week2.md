@@ -1,39 +1,77 @@
 # 2주차 리뷰
 
 ## 9강 리뷰
+
 ### Axios, Fetch 차이점
+
 1. axios
-   - 구형 브라우저를 지원한다.
-   - 응답시간 초과를 설정하는 방법이 있다.
-   - JSON데이터 자동변환이 가능하다.
-   - node.js에서의 사용이 가능하다
-   - request aborting (요청취소)가 가능하다
-   - catch에 걸렸을 때, .then을 실행하지 않고, .console창에 해당 에러 로그를 보여준다.
-   - return 값은 Promise 객체 형태이다.
+    - 구형 브라우저를 지원한다.
+    - 응답시간 초과를 설정하는 방법이 있다.
+    - JSON데이터 자동변환이 가능하다.
+    - node.js에서의 사용이 가능하다
+    - request aborting (요청취소)가 가능하다
+    - catch에 걸렸을 때, .then을 실행하지 않고, .console창에 해당 에러 로그를 보여준다.
+    - return 값은 Promise 객체 형태이다.
 
 
 2. fetch
-   - 자바스크립트 내장 라이브러리이기 때문에 import하지 않고 사용할 수 있다.
-   - 라이브러리의 업데이트에 따른 에러 방지가 가능하다 ( React Native의 경우 업데이트가 잦아서 라이브러리가 쫓아오지 못하는 경우가 많은데, fetch의 경우 이를 방지할 수 있다.)
-   - 네트워크 에러가 발생했을 때 기다려야 한다. (reponse timeout API 제공 x)
-   - 지원하지 않는 브라우저가 있다.
-   - return 값은 Promise객체 형태이다.
-   
+    - 자바스크립트 내장 라이브러리이기 때문에 import하지 않고 사용할 수 있다.
+    - 라이브러리의 업데이트에 따른 에러 방지가 가능하다 ( React Native의 경우 업데이트가 잦아서 라이브러리가 쫓아오지 못하는 경우가 많은데, fetch의 경우 이를 방지할 수 있다.)
+    - 네트워크 에러가 발생했을 때 기다려야 한다. (reponse timeout API 제공 x)
+    - 지원하지 않는 브라우저가 있다.
+    - return 값은 Promise객체 형태이다.
+
 ## 10강 리뷰
 
 1. router 란?
-   - 둘 혹은 그 이상의 네트워크와 네트워크 간 데이터 전송을 위해 최적 경로를 설정해주며 데이터를 해당 경로를 따라 한 통신망에서 다른 통신망으로 통신할 수 있도록 도와주는 인터넷 접속 장비이다.
-   - 즉, 네트워크를 통해 정보를 주고 받을 때 데이터에 담긴 수신처의 주소를 읽고 가장 적절한 통신통로를 이용해 다른 통신망으로 전송하는 장치로, 전화국의 교환기와 비슷한 개념이다.
-     > 출처: https://sites.google.com/site/21herecomeputer/123123
-   - **node.js** 에서 `router` 란 URI(또는 경로) 및 특정한 HTTP 요청 메소드(GET, POST 등)인 특정 엔드포인트에 대한 클라이언트 요청에 애플리케이션이 응답하는 방법을 결정하는 것을 말한다. 
-     > 출처: https://velog.io/@new_wisdom/Node.js-7-Routing
-   
+    - 둘 혹은 그 이상의 네트워크와 네트워크 간 데이터 전송을 위해 최적 경로를 설정해주며 데이터를 해당 경로를 따라 한 통신망에서 다른 통신망으로 통신할 수 있도록 도와주는 인터넷 접속 장비이다.
+    - 즉, 네트워크를 통해 정보를 주고 받을 때 데이터에 담긴 수신처의 주소를 읽고 가장 적절한 통신통로를 이용해 다른 통신망으로 전송하는 장치로, 전화국의 교환기와 비슷한 개념이다.
+      > 출처: https://sites.google.com/site/21herecomeputer/123123
+    - **node.js** 에서 `router` 란 URI(또는 경로) 및 특정한 HTTP 요청 메소드(GET, POST 등)인 특정 엔드포인트에 대한 클라이언트 요청에 애플리케이션이 응답하는 방법을 결정하는
+      것을 말한다.
+      > 출처: https://velog.io/@new_wisdom/Node.js-7-Routing
 
 ## 11강 리뷰
 
 ## 12강 리뷰
 
 ## 13강 리뷰
+
+## 14강 리뷰
+
+- 컴포넌트에 함수 전달하기
+
+> https://ko.reactjs.org/docs/faq-functions.html
+
+- 컴포넌트에 함수를 전달하려면 함수를 실행한 상태? 가 아니라 함수 그 자체를 보내야 합니다.
+- 특히 *매개변수가* 있는 함수를 전달 할때 이 개념은 중요하다
+- 옳은 방법
+```javascript
+const renderEventHandler2 = (movieId, userFrom) => {
+    console.log('2', movieId, userFrom);
+}
+
+const renderEventHandler3 = (e) => {
+    console.log('3', e.target.dataset.movieId, e.target.dataset.userFrom);
+}
+
+<button onClick={() => renderEventHandler2(el.movieId, el.userFrom)}>Remove</button>
+<button data-movie-id={el.movieId} data-user-from={el.userFrom} onClick={renderEventHandler3}>Remove</button>
+```
+
+- 잘못된 방법
+
+```javascript
+ const renderEventHandler1 = (movieId, userFrom) => {
+    console.log('1', movieId, userFrom);
+}
+
+<button onClick={renderEventHandler1(el.movieId, el.userFrom)}>Remove</button>
+```
+
+- 실행 결과
+
+
 
 ## issue
 
