@@ -19,7 +19,16 @@
    - 지원하지 않는 브라우저가 있다.
    - return 값은 Promise객체 형태이다.
    
-### issue
+## 10강 리뷰
+
+1. router 란?
+   - 둘 혹은 그 이상의 네트워크와 네트워크 간 데이터 전송을 위해 최적 경로를 설정해주며 데이터를 해당 경로를 따라 한 통신망에서 다른 통신망으로 통신할 수 있도록 도와주는 인터넷 접속 장비이다.
+   - 즉, 네트워크를 통해 정보를 주고 받을 때 데이터에 담긴 수신처의 주소를 읽고 가장 적절한 통신통로를 이용해 다른 통신망으로 전송하는 장치로, 전화국의 교환기와 비슷한 개념이다.
+     > 출처: https://sites.google.com/site/21herecomeputer/123123
+   - **node.js** 에서 `router` 란 URI(또는 경로) 및 특정한 HTTP 요청 메소드(GET, POST 등)인 특정 엔드포인트에 대한 클라이언트 요청에 애플리케이션이 응답하는 방법을 결정하는 것을 말한다. 
+     > 출처: https://velog.io/@new_wisdom/Node.js-7-Routing
+     
+## issue
 
 1. Mongodb 가 원할히 접속되지 않던 문제.
 * 출처: https://dream-frontend.tistory.com/382
