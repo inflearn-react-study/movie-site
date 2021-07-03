@@ -25,12 +25,38 @@ router.post('/favorited', (req, res) => {
                 return res.status(400).send(err);
             }
             let flag = false;
-            if(info.length) {
+            if (info.length) {
                 flag = true
             }
 
             res.status(200).json({success: true, favorited: flag});
         })
+})
+
+router.post('/removeFromFavorite', (req, res) => {
+    Favorite.findOneAndDelete({movieId: req.body.movieId, userFrom: req.body.userFrom})
+        .exec((err, doc) => {
+            if (err) {
+                return res.status(400).send(err);
+            }
+
+            return res.status(200).json({success: true, doc})
+        })
+
+})
+
+router.post('/addFromFavorite', (req, res) => {
+
+    const favorite = new Favorite(req.body)
+
+    favorite.save((err, doc) => {
+        if (err) {
+            return res.status(400).send(err);
+        }
+
+        return res.status(200).json({success: true})
+
+    });
 })
 
 module.exports = router;

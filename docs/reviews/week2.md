@@ -27,9 +27,15 @@
      > 출처: https://sites.google.com/site/21herecomeputer/123123
    - **node.js** 에서 `router` 란 URI(또는 경로) 및 특정한 HTTP 요청 메소드(GET, POST 등)인 특정 엔드포인트에 대한 클라이언트 요청에 애플리케이션이 응답하는 방법을 결정하는 것을 말한다. 
      > 출처: https://velog.io/@new_wisdom/Node.js-7-Routing
-     
+   
+
+## 11강 리뷰
+
+## 12강 리뷰
+
 ## issue
 
-1. Mongodb 가 원할히 접속되지 않던 문제.
+1. [Mongodb 가 원할히 접속되지 않던 문제.](https://github.com/inflearn-react-study/movie-site/issues/2)
 
-2. login 을 할 경우 movie detail 페이지에 접속 안되던 문제.
+2. [login 을 할 경우 movie detail 페이지에 접속 안되던 문제.](https://github.com/inflearn-react-study/movie-site/issues/3)
+   
