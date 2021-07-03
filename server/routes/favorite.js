@@ -48,15 +48,28 @@ router.post('/removeFromFavorite', (req, res) => {
 router.post('/addFromFavorite', (req, res) => {
 
     const favorite = new Favorite(req.body)
-
+    console.log('addFavorite', req.body);
     favorite.save((err, doc) => {
         if (err) {
             return res.status(400).send(err);
         }
 
-        return res.status(200).json({success: true})
+        return res.status(200).json({success: true, doc})
 
     });
+})
+
+router.post('/getFavoredMovie', (req, res) => {
+    console.log('getFavoredMovie', req.body)
+    Favorite.find({ 'userFrom': req.body.userFrom})
+        .exec((err, favorites) => {
+            console.log('favorites', favorites);
+            if (err) {
+                return res.status(400).send(err)
+            }
+
+            return res.status(200).json({success: true, favorites})
+        })
 })
 
 module.exports = router;

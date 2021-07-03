@@ -33,6 +33,8 @@
 
 ## 12강 리뷰
 
+## 13강 리뷰
+
 ## issue
 
 1. [Mongodb 가 원할히 접속되지 않던 문제.](https://github.com/inflearn-react-study/movie-site/issues/2)
